@@ -537,11 +537,9 @@ const char* const tpch_query_12 =
  *
  * Changes:
  *  1. Random values are hardcoded
- *  2. Variable binding in alias not supported by SQLParser
- *    a. removed it
  */
 const char* const tpch_query_13 =
-    R"(SELECT c_count, count(*) as custdist FROM (SELECT c_custkey, count(o_orderkey) AS c_count
+    R"(SELECT c_count, count(*) as custdist FROM (SELECT c_custkey, count(o_orderkey) as c_count
       FROM customer left outer join orders on c_custkey = o_custkey AND o_comment not like '%special%request%'
       GROUP BY c_custkey) as c_orders GROUP BY c_count ORDER BY custdist DESC, c_count DESC;)";
 
@@ -912,10 +910,10 @@ size_t tpch_supported_queries[NUM_SUPPORTED_TPCH_QUERIES] = {
     // 3, /* Enable once we support Exists and Subselects in WHERE condition */
     4, 5, 6,
     // 7, /* Enable once CASE and arithmetic operations of Aggregations are supported */
-    8, 9
+    8, 9,
     // 10, /* Enable once we support Subselects in Having clause */
     // 11, /* Enable once we support IN */
-    // 12, /* Enable once we support nested expressions in Join Condition */
+    12,
     // 13, /* Enable once we support Case */
     // 14, /* Enable once we support Subselects in WHERE condition */
     // 15, /* Enable once we support Subselects in WHERE condition */

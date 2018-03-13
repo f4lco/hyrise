@@ -57,29 +57,7 @@ TEST_P(TPCHTest, TPCHQueryTest) {
 }
 
 // clang-format off
-INSTANTIATE_TEST_CASE_P(TPCHTestInstances, TPCHTest, ::testing::Values(
-  0,
-  // 1, /* // Enable once we support Subselects in WHERE condition */
-  2,
-  // 3, /* Enable once we support Exists and Subselects in WHERE condition */
-  4,
-  5,
-  6,
-  // 7, /* Enable once CASE and arithmetic operations of Aggregations are supported */
-  8,
-  9
-  // 10, /* Enable once we support Subselects in Having clause */
-  // 11, /* Enable once we support IN */
-  // 12, /* Enable once we support nested expressions in Join Condition */
-  // 13, /* Enable once we support Case */
-  // 14, /* Enable once we support Subselects in WHERE condition */
-  // 15, /* Enable once we support Subselects in WHERE condition */
-  // 16, /* Enable once we support Subselects in WHERE condition */
-  // 17, /* Enable once we support Subselects in WHERE condition */
-  // 18, /* Enable once we support OR in WHERE condition */
-  // 19, /* Enable once we support Subselects in WHERE condition */
-  // 20 /* Enable once we support Exists and Subselect in WHERE condition */
-), );  // NOLINT
+INSTANTIATE_TEST_CASE_P(TPCHTestInstances, TPCHTest, ::testing::ValuesIn(tpch_supported_queries), );  // NOLINT
 // clang-format on
 
 }  // namespace opossum

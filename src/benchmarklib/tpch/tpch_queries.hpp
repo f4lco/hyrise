@@ -5,7 +5,7 @@
 namespace opossum {
 
 constexpr size_t NUM_TPCH_QUERIES = 22;
-constexpr size_t NUM_SUPPORTED_TPCH_QUERIES = 7;
+constexpr size_t NUM_SUPPORTED_TPCH_QUERIES = 8;
 
 extern const char* tpch_queries[NUM_TPCH_QUERIES];
 
